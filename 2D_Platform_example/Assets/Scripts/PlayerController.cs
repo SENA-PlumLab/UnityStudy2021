@@ -8,7 +8,9 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed;
     private float activeMoveSpeed;
 
-    private Rigidbody2D myrigidbody;
+    public bool canMove;
+
+    public Rigidbody2D myrigidbody;
 
     public float jumpSpeed;
 
@@ -49,6 +51,8 @@ public class PlayerController : MonoBehaviour
         theLevelManager = FindObjectOfType<LevelManager>();
 
         activeMoveSpeed = moveSpeed;
+
+        canMove = true;
     }
 
     // Update is called once per frame
@@ -58,7 +62,7 @@ public class PlayerController : MonoBehaviour
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
 
         //knockback
-        if(knockbackCounter <= 0)  //좌우조작,점프는 넉백이 아닌 상태에서 가능
+        if(knockbackCounter <= 0 && canMove)  //좌우조작,점프는 넉백이 아닌 상태에서 가능
         {
             if (onPlatform)
             {
