@@ -122,7 +122,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e9271007d26a6642a14ba5d04f84fb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelToLoad: Level2
+  levelToLoad: LevelSelect
+  levelToUnlock: 
   waitToMove: 1
   waitToLoad: 1
   flagOpen: {fileID: 2493586523304806405, guid: 2db1910e40c17194ca30fa95831d720d, type: 3}

@@ -37,6 +37,8 @@ public class LevelManager : MonoBehaviour
     public AudioSource levelMusic;
     public AudioSource gameOverMusic;
 
+    public bool respawnCoActive;
+
 
     // Start is called before the first frame update
     void Start()
@@ -114,6 +116,7 @@ public class LevelManager : MonoBehaviour
 
     public IEnumerator RespawnCo()
     {
+        respawnCoActive = true;
         thePlayer.gameObject.SetActive(false);
 
         // 오브젝트, 오브젝트를 둘 곳(position), 오브젝트의 rotation
@@ -122,6 +125,7 @@ public class LevelManager : MonoBehaviour
         //yield 게임 잠시 멈추기... 
         yield return new WaitForSeconds(waitToRespawn);
 
+        respawnCoActive = false;
         //체력 회복
         healthCount = maxHealth;
         respawning = false;

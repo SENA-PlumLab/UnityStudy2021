@@ -34,5 +34,12 @@ public class StompEnemy : MonoBehaviour
 
             playerRigidbody.velocity = new Vector3(playerRigidbody.velocity.x, bounceForce, 0f);
         }
+
+        if(collision.tag == "Boss")
+        {
+            playerRigidbody.velocity = new Vector3(playerRigidbody.velocity.x, bounceForce, 0f);
+            collision.transform.parent.GetComponent<Boss>().takeDamage = true;
+        }
+
     }
 }
